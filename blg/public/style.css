@@ -28,18 +28,50 @@ body {
 	margin-right: 10px !important;
 }
 
+
 .err {
 	color: red;
 	font-size: 0.8rem;
 }
 
+
+.title {
+	font-weight: bold;
+}
+p {
+	color: darkgrey;
+}
 .comment_form {
 	display: flex;
 }
-.comment_input {
+/*input.comment_input:focus:not, input.comment_input:focus, input.comment_input:not {
+	border-bottom: 0px !important;
+	background-color: red !important;
+}*/
+
+.time {
+	font-size:0.8rem;
+	float: right;
+	margin-left: auto;
+}
+
+
+
+.comment-item {
+	display: flex;
+}
+
+.profile_img {
+	max-width: 40px;
+	height: 40px;
+	margin-right: 10px;
+}
+
+.avatar {
+	padding-left: auto;
 }
 .comment_button {
-	
+
 }
 /*.btn_floating {
 	float: right !important;

@@ -1,4 +1,22 @@
 $(document).ready(function(){
+  console.log('jquery working')
+
+  $('.comment_form').on('submit', function(e) {
+    e.preventDefault()
+    console.log('login submit')
+    var $messageId = $('.message_id').val()
+    var $commentInput = $('.comment_input').val()
+    var $commentForm = {
+      messageId: $messageId,
+      comment: $commentform
+    }
+    $.post({
+      url: '/ajaxcomment'
+      data: $commentForm
+    })
+
+  })
+
   //
   // $('#post_btn').on('click', function(e) {
   //   console.log('button pressed')
