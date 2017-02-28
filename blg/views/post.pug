@@ -1,0 +1,20 @@
+doctype html
+html(lang='en')
+  include includes/_header.pug
+    li
+      a(href='/user/'+user.id) #{user.user}
+  body
+    .container
+      .row
+        .col.s12.m5
+          .card.small
+            .card-image
+              img(src='http://lorempixel.com/400/400/nature/' +message.id)
+              span.card-title #{message.title}
+            .card-content
+              p #{message.text}
+            .card-action
+              a(href='/user/'+user.id) #{user.user}
+        ul
+          each comment in comments
+              li #{comment.user} #{commment.comment}

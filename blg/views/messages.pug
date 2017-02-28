@@ -1,0 +1,41 @@
+doctype html
+html(lang='en')
+  include includes/_header.pug
+    li
+      a(href='/user/'+user.id) #{user.user}
+  body
+    .container
+      .row
+        .col.s12
+        ul
+          each message in messages
+            li.row
+              .col.s12.m5
+                ul.collection
+                  li.collection-item.avatar
+                    img.circle(src='images/yuna.jpg', alt='')
+                    span.title Title
+                    p First Line
+                    br Second Line
+                    a.secondary-content(href='#!')
+                    i.material-icons grade
+
+                .card.medium
+                  .card-image
+                    img(src='http://lorempixel.com/400/400/nature/' +message.id)
+                    span.card-title #{message.title}
+                  .card-content
+                    p #{message.text}
+                  .card-action
+                    a(href='/user/'+user.id) By #{user.user}
+                    span.new.badge(data-badge-caption="Comments") 4
+                  .collection
+                    form.collection-item.comment_form(method='POST', action='/commenthandler')
+                      input.comment_input(name='comment', placeholder='Write a comment..')
+                      button.btn-flat.btn.comment_button(type='submit') Comment
+                    a.collection-item(href='#!')
+                      span.new.badge(data-badge-caption="custom caption") 4
+                      | Alan
+                    a.collection-item(href='#!')
+                      span.new.badge 4
+                      | Alan

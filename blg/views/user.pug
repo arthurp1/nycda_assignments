@@ -1,0 +1,22 @@
+doctype html
+html(lang='en')
+  include includes/_header.pug
+    li.active
+      a(href='/user/'+user.id) #{user.user}
+  body
+    .container
+      .row
+        .col.s12
+          ul
+            each message in messages
+              li.row
+                .col.s12.m5
+                  .card.small
+                    .card-image
+                      img(src='http://lorempixel.com/400/200/')
+                      span.card-title #{message.title}
+                    .card-content
+                      p #{message.text}
+                    .card-action
+                      a(href='/user/'+user.id) #{user.user}
+                      a(href='/post/'+ message.id) Edit
