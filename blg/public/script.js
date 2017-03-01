@@ -8,14 +8,62 @@ $(document).ready(function(){
     var $commentInput = $('.comment_input').val()
     var $commentForm = {
       messageId: $messageId,
-      comment: $commentform
+      comment: $commentInput
     }
     $.post({
-      url: '/ajaxcomment'
-      data: $commentForm
+      url: '/ajaxcomment',
+      data: $commentForm,
+      success: function(data) {
+        console.log(data)
+        // $('.comment-list').html(comments)
+        // console.log(data)
+        }
+      })
     })
 
+    //post loads
+    // $('.favorite-btn').each(function(i) {
+    //   console.log('get request made')
+    //   var $messageid = $(this).attr('messageid')
+    //   $.get('/like', { messageid: $messageid } )
+    //     .done(function( data ) {
+    //       console.log(data)
+    //     });
+
+
+    // //check db how many people liked post
+    // $('.favorite-btn').each(function(i) {
+    //   $.post('/like', function(data) {
+    //     var $messageid = $(this).attr('messageid')
+    //     console.log(data)
+    //     //user like
+    //     //like count
+    //   })
+    // })
+
+    // check if user liked post, show correct image
+
+    // toggle like with post request
+    // $('favorite-btn').on('click', function(e) {
+    // var $userlike = $('.favorite-btn').attr('userlike')
+    // if ($userlike = false) {
+    //
+    // }
+
+    // $('span.favorite-btn').on('click', function(e) {
+    //   var $messageid = $(this).attr('messageid')
+    //   console.log('fav clicked with messageId: ' + $messageId)
+    //   $('.favorite-icon',this).html('favorite')
+    //   })
+
+
+    $('.comment-btn').on('click', function(e) {
+      console.log('comment btn clicked')
+      $('.comment-icon').html('insert_comment')
+      $('.comment-section').append()
+      })
   })
+
 
   //
   // $('#post_btn').on('click', function(e) {
@@ -42,7 +90,7 @@ $(document).ready(function(){
   //       }
   //     })
   // })
-})
+// })
 
 //     $('#message_form').on('submit', function(e){
 //       // e.preventDefault()

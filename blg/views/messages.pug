@@ -17,48 +17,11 @@ html(lang='en')
                     a(href='/user/'+ message.user.id) By #{message.user.user}
                     p.time #{moment().startOf(message.createdAt).fromNow()}
                     a.secondary-content(href='#!')
-                  form.comment_form.collection-item
+                  form#comment_form.comment_form.collection-item
                     img.circle.profile_img(src='http://lorempixel.com/50/50/people/' + user.id)
                     input.message_id(type="hidden", name="messageId", value=message.id)
                     input.comment_input(name='comment', placeholder='Write a comment..')
-                    //- button.btn.btn-flat.comment_button(type='submit') Comment
                   each comment in message.comments
                     .collection-item.comment-item
                       p #{comment.userId} #{comment.comment}
                       p.time #{moment().startOf(comment.createdAt).fromNow()}
-
-                  //- ul.collapsible(data-collapsible='accordion')
-                  //-   li
-                  //-     .collapsible-header
-                  //-
-                  //-     .collapsible-body
-                  //-       a.collection-item(href='#!')
-                  //-         | This is a comment
-                  //-       a.collection-item(href='#!')
-                  //-         | This is a comment
-                  //- form.collection-item.comment_form(method='POST', action='/commenthandler')
-                  //-   input.comment_input(name='comment', placeholder='Write a comment..')
-                  //-   button.btn-flat.btn.comment_button(type='submit') Comment
-                  //- a.collection-item(href='#!')
-                  //-   span.new.badge(data-badge-caption="custom caption") 4
-                  //-   | Alan
-                //-
-                //- .card.medium
-                //-   .card-image
-                //-     img(src='http://lorempixel.com/400/400/nature/' +message.id)
-                //-     span.card-title #{message.title}
-                //-   .card-content
-                //-     p #{message.text}
-                //-   .card-action
-                //-     a(href='/user/'+user.id) By #{user.user}
-                //-     span.new.badge(data-badge-caption="Comments") 4
-                //-   .collection
-                //-     form.collection-item.comment_form(method='POST', action='/commenthandler')
-                //-       input.comment_input(name='comment', placeholder='Write a comment..')
-                //-       button.btn-flat.btn.comment_button(type='submit') Comment
-                //-     a.collection-item(href='#!')
-                //-       span.new.badge(data-badge-caption="custom caption") 4
-                //-       | Alan
-                //-     a.collection-item(href='#!')
-                //-       span.new.badge 4
-                //-       | Alan

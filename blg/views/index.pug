@@ -1,0 +1,36 @@
+doctype html
+html(lang='en')
+  include includes/_header.pug
+  body
+    .container
+      .row
+        ul.col.s12
+          each message in messages
+            li.row
+              ul.collection.col.s12.m6
+                li.collection-item
+                  img(src='http://lorempixel.com/300/200/nature/' +message.id)
+                  .title #{message.title}
+                  p #{message.text}
+                  a(href='/user/'+ message.user.id) By #{message.user.user}
+                  p.time #{moment().startOf(message.createdAt).fromNow()}
+                  a.secondary-content(href='#!')
+                    //- commentbar
+                    //- span.badge(data-badge-caption="1")
+                  .comment-bar.collection-item
+                  //- span.favorite-btn(messageid=message.id,userlike=false)
+                  //-   i.material-icons.favorite-icon favorite_border
+                  span.comment-btn(messageId=message.id)
+                    i.material-icons.comment-icon mode_comment
+                    span.comment-counter #{message.comments.length}
+                      //- comment list
+                  .comment-list.collection-item
+                    //- Form comes on the bottom
+                  form.comment_form.collection-item
+                    //- img.circle.profile_img(src='http://lorempixel.com/50/50/people/' + user.id)
+                    input.message_id(type="hidden", name="messageId", value=message.id)
+                    input.comment_input(name='comment', placeholder='Write a comment..')
+                each comment in message.comments
+                  .collection-item.comment-item
+                    p #{comment.userId} #{comment.comment}
+                    p.time #{moment().startOf(comment.createdAt).fromNow()}
